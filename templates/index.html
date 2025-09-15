@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>PDF Cleaner Tool</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h2>Upload PDF để xoá/mask số điện thoại & email</h2>
+
+    <!-- Form xử lý 1 file -->
+    <form action="/api/pdf/single" enctype="multipart/form-data" method="post">
+        <label>Chọn file PDF (single):</label><br>
+        <input type="file" name="file" accept=".pdf" required><br>
+        <select name="mode">
+            <option value="mask">Mask (che)</option>
+            <option value="remove">Remove (xóa)</option>
+        </select>
+        <button type="submit">Upload & Xử lý</button>
+    </form>
+
+    <hr>
+
+    <!-- Form xử lý nhiều file -->
+    <form action="/api/pdf/multi" enctype="multipart/form-data" method="post">
+        <label>Chọn nhiều file PDF (multi):</label><br>
+        <input type="file" name="files" accept=".pdf" multiple required><br>
+        <select name="mode">
+            <option value="mask">Mask (che)</option>
+            <option value="remove">Remove (xóa)</option>
+        </select>
+        <button type="submit">Upload & Xử lý Batch</button>
+    </form>
+</body>
+</html>
